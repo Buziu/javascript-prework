@@ -1,19 +1,20 @@
 {
   const kamieńButton = document.getElementById("kamień"),
     papierButton = document.getElementById("papier"),
-    nożyceButton = document.getElementById("nożyce");
+    nożyceButton = document.getElementById("nożyce"),
+    kamieńButtonClicked = function () {
+      playGame(1);
+    },
+    papierButtonClicked = function () {
+      playGame(2);
+    },
+    nożyceButtonClicked = function () {
+      playGame(3);
+    };
   kamieńButton.addEventListener("click", kamieńButtonClicked);
   papierButton.addEventListener("click", papierButtonClicked);
   nożyceButton.addEventListener("click", nożyceButtonClicked);
-  function kamieńButtonClicked() {
-    playGame(1);
-  }
-  function papierButtonClicked() {
-    playGame(2);
-  }
-  function nożyceButtonClicked() {
-    playGame(3);
-  }
+
   function playGame(playerInput) {
     function getMoveName(argMoveId) {
       if (argMoveId == 1) {
