@@ -16,36 +16,36 @@
   nożyceButton.addEventListener("click", nożyceButtonClicked);
 
   function playGame(playerInput) {
-    function getMoveName(argMoveId) {
-      if (argMoveId == 1) {
-        return "kamień";
-      } else if (argMoveId == 2) {
-        return "papier";
-      } else if (argMoveId == 3) {
-        return "nożyce";
-      }
-      printMessage("Nie znam ruchu o id " + argMoveId + ".");
-      return "nieznany ruch";
-    }
-    function displayResult(argComputerMove, argPlayerMove) {
-      printMessage("Zagrałem " + argComputerMove + ", a Ty " + argPlayerMove);
+    const getMoveName = function (argMoveId) {
+        if (argMoveId == 1) {
+          return "kamień";
+        } else if (argMoveId == 2) {
+          return "papier";
+        } else if (argMoveId == 3) {
+          return "nożyce";
+        }
+        printMessage("Nie znam ruchu o id " + argMoveId + ".");
+        return "nieznany ruch";
+      },
+      displayResult = function (argComputerMove, argPlayerMove) {
+        printMessage("Zagrałem " + argComputerMove + ", a Ty " + argPlayerMove);
 
-      if (
-        (argComputerMove == "kamień" && argPlayerMove == "papier") ||
-        (argComputerMove == "nożyce" && argPlayerMove == "kamień") ||
-        (argComputerMove == "papier" && argPlayerMove == "nożyce")
-      ) {
-        printMessage("Ty wygrywasz!");
-      } else if (
-        (argComputerMove == "kamień" && argPlayerMove == "kamień") ||
-        (argComputerMove == "papier" && argPlayerMove == "papier") ||
-        (argComputerMove == "nożyce" && argPlayerMove == "nożyce")
-      ) {
-        printMessage("Remis!");
-      } else {
-        printMessage("Przegrywasz!");
-      }
-    }
+        if (
+          (argComputerMove == "kamień" && argPlayerMove == "papier") ||
+          (argComputerMove == "nożyce" && argPlayerMove == "kamień") ||
+          (argComputerMove == "papier" && argPlayerMove == "nożyce")
+        ) {
+          printMessage("Ty wygrywasz!");
+        } else if (
+          (argComputerMove == "kamień" && argPlayerMove == "kamień") ||
+          (argComputerMove == "papier" && argPlayerMove == "papier") ||
+          (argComputerMove == "nożyce" && argPlayerMove == "nożyce")
+        ) {
+          printMessage("Remis!");
+        } else {
+          printMessage("Przegrywasz!");
+        }
+      };
     const randomNumber = Math.floor(Math.random() * 3 + 1),
       argComputerMove = getMoveName(randomNumber),
       argPlayerMove = getMoveName(playerInput);
