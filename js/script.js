@@ -1,23 +1,19 @@
 {
+  const kamieńButton = document.getElementById("kamień"),
+    papierButton = document.getElementById("papier"),
+    nożyceButton = document.getElementById("nożyce");
+  kamieńButton.addEventListener("click", kamieńButtonClicked);
+  papierButton.addEventListener("click", papierButtonClicked);
+  nożyceButton.addEventListener("click", nożyceButtonClicked);
   function kamieńButtonClicked() {
     playGame(1);
   }
-  let kamieńButton = document.getElementById("kamień");
-
-  kamieńButton.addEventListener("click", kamieńButtonClicked);
-
   function papierButtonClicked() {
     playGame(2);
   }
-  let papierButton = document.getElementById("papier");
-
-  papierButton.addEventListener("click", papierButtonClicked);
   function nożyceButtonClicked() {
     playGame(3);
   }
-  let nożyceButton = document.getElementById("nożyce");
-
-  nożyceButton.addEventListener("click", nożyceButtonClicked);
   function playGame(playerInput) {
     function getMoveName(argMoveId) {
       if (argMoveId == 1) {
@@ -49,17 +45,12 @@
         printMessage("Przegrywasz!");
       }
     }
-
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1),
+      argComputerMove = getMoveName(randomNumber),
+      argPlayerMove = getMoveName(playerInput);
 
     console.log("Wylosowana liczba to: " + randomNumber);
-
-    let argComputerMove = getMoveName(randomNumber);
-
-    let argPlayerMove = getMoveName(playerInput);
-
     console.log("Gracz wpisał: " + playerInput);
-
     console.log("moves:", argComputerMove, argPlayerMove);
 
     displayResult(argComputerMove, argPlayerMove);
