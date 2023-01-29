@@ -1,21 +1,19 @@
 {
   const kamieńButton = document.getElementById("kamień"),
     papierButton = document.getElementById("papier"),
-    nożyceButton = document.getElementById("nożyce"),
-    kamieńButtonClicked = function () {
-      playGame(1);
-    },
-    papierButtonClicked = function () {
-      playGame(2);
-    },
-    nożyceButtonClicked = function () {
-      playGame(3);
-    };
-  kamieńButton.addEventListener("click", kamieńButtonClicked);
-  papierButton.addEventListener("click", papierButtonClicked);
-  nożyceButton.addEventListener("click", nożyceButtonClicked);
+    nożyceButton = document.getElementById("nożyce");
+  kamieńButton.addEventListener("click", function () {
+    playGame(1);
+  });
+  papierButton.addEventListener("click", function () {
+    playGame(2);
+  });
+  nożyceButton.addEventListener("click", function () {
+    playGame(3);
+  });
 
-  function playGame(playerInput) {
+  const playGame = function (playerInput) {
+    clearMessages();
     const getMoveName = function (argMoveId) {
         if (argMoveId == 1) {
           return "kamień";
@@ -55,5 +53,5 @@
     console.log("moves:", argComputerMove, argPlayerMove);
 
     displayResult(argComputerMove, argPlayerMove);
-  }
+  };
 }
