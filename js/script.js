@@ -1,17 +1,4 @@
 {
-  const kamieńButton = document.getElementById("kamień"),
-    papierButton = document.getElementById("papier"),
-    nożyceButton = document.getElementById("nożyce");
-  kamieńButton.addEventListener("click", function () {
-    playGame(1);
-  });
-  papierButton.addEventListener("click", function () {
-    playGame(2);
-  });
-  nożyceButton.addEventListener("click", function () {
-    playGame(3);
-  });
-
   const playGame = function (playerInput) {
     clearMessages();
     const getMoveName = function (argMoveId) {
@@ -54,4 +41,13 @@
 
     displayResult(argComputerMove, argPlayerMove);
   };
+  document.getElementById("kamień").addEventListener("click", function () {
+    playGame(1);
+  });
+  document.getElementById("papier").addEventListener("click", function () {
+    playGame(2);
+  });
+  document.getElementById("nożyce").addEventListener("click", function () {
+    playGame(3);
+  });
 }
